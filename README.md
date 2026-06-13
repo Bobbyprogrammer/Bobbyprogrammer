@@ -6,6 +6,8 @@ Purpose
 This Dockerfile creates a Docker image for a Node.js backend application. It installs dependencies, copies the application source code, exposes the backend port, and starts the server.
 
 Dockerfile
+
+
 FROM node:20-alpine
 
 WORKDIR /app
@@ -29,6 +31,8 @@ Purpose
 This Dockerfile creates a Docker image for a Vite frontend application. It installs dependencies, builds the production assets, exposes the application port, and serves the built application using Vite Preview.
 
 Dockerfile
+
+
 FROM node:20-alpine
 
 WORKDIR /app
