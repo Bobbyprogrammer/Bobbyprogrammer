@@ -1,4 +1,4 @@
-## Hi there 👋
+# 🔥 MERN Stack • Docker  • GitHub Actions • CI/CD
 
 Dockerfile for Node.js Backend
 Purpose
@@ -297,6 +297,7 @@ Purpose
 
 This command installs ESLint and Prettier along with essential React plugins for code quality, formatting, and CI/CD validation.
 Installation
+
 npm i -D eslint prettier @eslint/js globals eslint-plugin-react-hooks eslint-plugin-react-refresh
 
 ESLint & Prettier Setup for Node.js Backend
@@ -305,4 +306,33 @@ Purpose
 This command installs ESLint and Prettier for a Node.js backend application to enforce code quality and consistent formatting.
 
 Installation
+
 npm i -D eslint prettie
+
+Backend eslint.config.js
+
+export default [
+  {
+    files: ["**/*.js"],
+    rules: {
+      semi: ["error", "always"],
+      "no-unused-vars": "warn",
+    },
+  },
+];
+
+
+.prettierrc file code 
+
+{
+  "semi": true,
+  "singleQuote": true,
+  "printWidth": 100
+}
+
+Add these into scripts of  backend
+
+ "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "check-format": "prettier --check ."
