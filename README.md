@@ -1,13 +1,17 @@
 # 🔥 MERN Stack • Docker  • GitHub Actions • CI/CD
 
-Dockerfile for Node.js Backend
-Purpose
+
+
+## Dockerfile for Node.js Backend
+
+### Purpose
 
 This Dockerfile creates a Docker image for a Node.js backend application. It installs dependencies, copies the application source code, exposes the backend port, and starts the server.
 
-Dockerfile
+### Dockerfile
 
-
+````markdown
+```dockerfile
 FROM node:20-alpine
 
 WORKDIR /app
@@ -21,18 +25,21 @@ COPY . .
 EXPOSE 5000
 
 CMD ["node", "index.js"]
+```
+````
 
 
 
+## Dockerfile for Vite Frontend Application
 
-Dockerfile for Vite Frontend Application
-Purpose
+### Purpose
 
 This Dockerfile creates a Docker image for a Vite frontend application. It installs dependencies, builds the production assets, exposes the application port, and serves the built application using Vite Preview.
 
-Dockerfile
+### Dockerfile
 
-
+````markdown
+```dockerfile
 FROM node:20-alpine
 
 WORKDIR /app
@@ -47,7 +54,14 @@ RUN npm run build
 
 EXPOSE 5173
 
-CMD ["npm","run","preview"]
+CMD ["npm", "run", "preview"]
+```
+````
+
+
+
+
+
 
 
 # Docker Compose for MERN Application
@@ -302,7 +316,7 @@ Purpose
 This command installs ESLint and Prettier along with essential React plugins for code quality, formatting, and CI/CD validation.
 Installation
 
-npm i -D eslint prettier @eslint/js globals eslint-plugin-react-hooks eslint-plugin-react-refresh
+```npm i -D eslint prettier @eslint/js globals eslint-plugin-react-hooks eslint-plugin-react-refresh ```
 
 ESLint & Prettier Setup for Node.js Backend
 Purpose
@@ -311,10 +325,10 @@ This command installs ESLint and Prettier for a Node.js backend application to e
 
 Installation
 
-npm i -D eslint prettie
+``` npm i -D eslint prettie ```
 
 Backend eslint.config.js
-
+ ```
 export default [
   {
     files: ["**/*.js"],
@@ -324,19 +338,22 @@ export default [
     },
   },
 ];
-
+```
 
 .prettierrc file code 
-
+```
 {
   "semi": true,
   "singleQuote": true,
   "printWidth": 100
 }
+```
+ ADD same prettier in frontend
 
 Add these into scripts of  backend
-
+```
  "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "check-format": "prettier --check ."
+```
